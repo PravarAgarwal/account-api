@@ -137,17 +137,6 @@ The test suite includes API validation, account and transaction behaviour, and t
 
 **Warning:** The PostgreSQL integration tests recreate database tables. Configure `TEST_DATABASE_URL` to point only to a dedicated test database, never a production or personal database.
 
-## Assumptions and Design Decisions
-
-- Account balances use decimal monetary values rather than floating-point arithmetic.
-- Account balances cannot be negative.
-- Transaction amounts must be positive and use at most two decimal places.
-- Transaction reference IDs must be unique per account.
-- A transfer cannot use the same account as both source and destination.
-- A transfer creates a debit record for the source and a credit record for the destination.
-- Database migrations are managed using Alembic.
-- API errors use structured responses with an error code and message.
-
 ## Project Structure
 
 - `src/api/routes/` — API endpoints
